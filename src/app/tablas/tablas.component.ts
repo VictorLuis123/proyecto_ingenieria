@@ -8,7 +8,9 @@ import { DataService } from '../data.service';
 })
 export class TablasComponent implements OnInit{
   constructor(private dataService:DataService) { }
-  nombre_tabla='client'
+  
+  nombre_a_imprimir:string=''
+  nombre_tabla:string=''
   elementos:any[]=[]
   atributos:any[]=[]
 
@@ -22,9 +24,11 @@ export class TablasComponent implements OnInit{
     });
   }
 
-  BuscarTabla(tabla:string):void{
+  BuscarTabla(tabla:string, titulo:string):void{
     this.nombre_tabla=tabla;
+    this.nombre_a_imprimir=titulo
     this.elementos=[]
+    this.atributos=[]
     this.ngOnInit()
   }
 
