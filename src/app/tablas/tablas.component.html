@@ -1,7 +1,32 @@
 <p>tablas works!</p>
-<ul class="list-group list-group-horizontal">
-  <li class="list-group-item list-group-item-action">Tabla Clientes</li>
-  <li class="list-group-item list-group-item-action">Tabla 2</li>
-  <li class="list-group-item list-group-item-action">Tabla 3</li>
-  <li class="list-group-item list-group-item-action">Tabla 4</li>
-</ul>
+<div>
+  <ul class="list-group list-group-horizontal">
+    <li class="list-group-item list-group-item-action" (click)="BuscarTabla('client')">Tabla Clientes</li>
+    <li class="list-group-item list-group-item-action">Tabla 2</li>
+    <li class="list-group-item list-group-item-action">Tabla 3</li>
+    <li class="list-group-item list-group-item-action">Tabla 4</li>
+  </ul>
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>a</th>
+        <th>b</th>
+        <th>c</th>
+      </tr>
+      <tr *ngFor="let elemento of elementos;let i=index">
+        <th scope="row">{{i}}</th>
+        <!-- <th *ngFor="let atrib of elemento"> {{atrib.key}}</th> -->
+
+      </tr>
+      
+    </tbody>
+  </table>
+
+</div>
