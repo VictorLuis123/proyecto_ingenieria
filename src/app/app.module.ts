@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { TablasComponent } from './tablas/tablas.component';
+import { ConsultasComponent } from './consultas/consultas.component';
 
 const routes: Routes = [
   { path: '', component: TablasComponent }, 
@@ -16,7 +17,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    TablasComponent
+    TablasComponent,
+    ConsultasComponent
   ],
   imports: [
     BrowserModule,
