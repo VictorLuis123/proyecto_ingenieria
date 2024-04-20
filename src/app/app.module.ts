@@ -10,6 +10,7 @@ import { ConsultasComponent } from './consultas/consultas.component';
 
 const routes: Routes = [
   { path: '', component: TablasComponent }, 
+  { path: 'consultas', component: ConsultasComponent}
   // Agrega aquí otras rutas necesarias para tu aplicación
 ];
 
