@@ -10,11 +10,13 @@ export class TablasComponent implements OnInit{
   constructor(private dataService:DataService) { }
   nombre_tabla='client'
   elementos:any[]=[]
+  atributos:any[]=[]
+
   ngOnInit(): void {
     // Llamar al método del servicio y pasar el nombre de la tabla como parámetro
     this.dataService.getData(this.nombre_tabla).subscribe((data:any) => {
-      //console.log(data); // Manejar los datos recibidos aquí
       data.forEach((item:any) => {
+        this.atributos=Object.keys(item);
         this.elementos.push(item);
       });
     });

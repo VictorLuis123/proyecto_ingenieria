@@ -9,23 +9,15 @@
   <table class="table">
     <thead class="table-dark">
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
+        <th scope="row">#</th>
+        <th *ngFor="let atrib of atributos">{{atrib}}</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>a</th>
-        <th>b</th>
-        <th>c</th>
-      </tr>
       <tr *ngFor="let elemento of elementos;let i=index">
         <th scope="row">{{i}}</th>
-        <!-- <th *ngFor="let atrib of elemento"> {{atrib.key}}</th> -->
-
+        <th *ngFor="let atrib of atributos"> {{elemento[atrib]}}</th>
       </tr>
-      
     </tbody>
   </table>
 
