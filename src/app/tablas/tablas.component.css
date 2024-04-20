@@ -1,0 +1,7 @@
+.mostrar-tabla{
+  text-align: center; /* Centrar el texto */
+  cursor: pointer; /* Cambiar el cursor a una mano */
+  border: 1px solid #ced4da; /* Borde sólido */
+  border-radius: 5px; /* Bordes redondeados */
+
+}

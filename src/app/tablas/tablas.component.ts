@@ -34,5 +34,7 @@ export class TablasComponent implements OnInit{
 
   
 
+  
+
  
 }
