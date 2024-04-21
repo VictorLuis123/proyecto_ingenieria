@@ -12,7 +12,12 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   // Método para enviar el nombre de la tabla como parámetro al archivo PHP
-   getData(tableName: string):any{
+  getData(tableName: string):any{
     return this.http.get<any>('http://localhost/ServidorEtecsa/mostrar_tablas.php', { params: { nombre_tabla: tableName } });
   } 
+
+  //Metodo para annadir un usuario a la base de datos
+  addUser(userData:any){
+    return this.http.post<any>('http://localhost/ServidorEtecsa/insertar_eliminar_usuarios.php', userData);
+  }
 }

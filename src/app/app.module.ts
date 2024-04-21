@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { TablasComponent } from './tablas/tablas.component';
 import { ConsultasComponent } from './consultas/consultas.component';
+import { DataService } from './data.service';
 
 const routes: Routes = [
   { path: '', component: TablasComponent }, 
@@ -24,9 +25,10 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(routes) // Registra las rutas aquí
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

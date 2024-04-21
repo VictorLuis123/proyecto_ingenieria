@@ -14,28 +14,47 @@
         <br>
       </div>
     </div>
-    <!-- Implementar el dinamismo, ngif y hacerle funciones en rl typescript -->
+    <!-- Implementar el dinamismo, ngif y hacerle funciones en el typescript -->
     <div class="col-8">
-      <p class="fs-3 text-center">Inserte Ciente</p>
+      <p class="fs-3 text-center">Inserte Cliente</p>
+
+      <!-- Formulario cool -->
+      <form (ngSubmit)="submitFormClient()" #clienteForm="ngForm">
+        <!-- 2 column grid layout with text inputs for the first and last names -->
+        <div class="row mb-4">
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="name" class="form-control" name="name" [(ngModel)]="user_data.name"/>
+              <label class="form-label" for="name" >Nombre Completo</label>
+            </div>
+          </div>
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="number" id="id" class="form-control" name="id" [(ngModel)]="user_data.id" />
+              <label class="form-label" for="id">CI del Cliente</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="text" id="address" class="form-control" name="address" [(ngModel)]="user_data.address"/>
+              <label class="form-label" for="address">Direccion</label>
+            </div>
+          </div>
+          <div class="col">
+            <div data-mdb-input-init class="form-outline">
+              <input type="number" id="telephone" class="form-control" name="telephone" [(ngModel)]="user_data.telephone"/>
+              <label class="form-label" for="telephone">Numero de telefono</label>
+            </div>
+          </div>
+        </div>
+        <!-- Submit button -->
+        <button data-mdb-ripple-init type="submit" class="btn btn-dark btn-block mb-4">Insertar Cliente</button>
+      </form>
+
     </div>
   
   </div>
-  
-
-  <!-- <p class="fs-3 text-center">{{nombre_a_imprimir}}</p>
-  <table *ngIf="nombre_a_imprimir!=''"    class="table">
-    <thead class="table-dark">
-      <tr>
-        <th scope="row">#</th>
-        <th *ngFor="let atrib of atributos">{{atrib}}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let elemento of elementos;let i=index">
-        <th scope="row">{{i}}</th>
-        <th *ngFor="let atrib of atributos"> {{elemento[atrib]}}</th>
-      </tr>
-    </tbody>
-  </table> -->
-
 </div>
