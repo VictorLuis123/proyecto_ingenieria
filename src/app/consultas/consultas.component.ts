@@ -10,6 +10,9 @@ export class ConsultasComponent {
   constructor(private dataservice:DataService){}
   
   tipo_query:string='';
+  phone_number:string='';
+  url:string='';
+  draw_table:boolean=false;
   elementos:any[]=[]
   atributos:any[]=[]
 
@@ -28,6 +31,9 @@ export class ConsultasComponent {
        }
     );
   }
+  
+
+
   executeQuery():void{
     this.atributos=[]
     this.elementos=[]
@@ -37,6 +43,17 @@ export class ConsultasComponent {
         this.elementos.push(item);
       });
     }); 
+  }
+  executeQueryByPhone():void{
+    this.atributos=[]
+    this.elementos=[]
+    this.dataservice.getQueryByPhone(this.phone_number,this.url).subscribe((data:any) => {
+      data.forEach((item:any) => {
+        this.atributos=Object.keys(item);
+        this.elementos.push(item);
+      });
+    }); 
+    this.draw_table=true;
   }
 };
 

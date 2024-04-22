@@ -25,5 +25,8 @@ export class DataService {
   getQuery(query_name:string):any{
     return this.http.get<any>('http://localhost/BackendEtecsa/queries_without_parameters.php', { params: { tipo_query: query_name } });
   }
+  getQueryByPhone(phone_number1:string, url:string):any{
+    return this.http.get<any>(url, { params: { phone_number: phone_number1} });
+  }
 
 }

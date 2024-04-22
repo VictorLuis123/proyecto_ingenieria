@@ -4,21 +4,32 @@
   <div class="row">
     <div class="col-4">
       <div class="list-group">
-        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Inserte Cliente'">Insertar Cliente</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Inserte Cliente'" (click)="draw_table=false">Insertar Cliente</a>
         <br>
-        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Carga por metrado'" (click)="executeQuery()">Carga por metrado</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Carga por metrado'" (click)="executeQuery()" (click)="draw_table=true">Carga por metrado</a>
         <br>
-        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Cliente mas activo'" (click)="executeQuery()">Cliente mas activo</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Cliente mas activo'" (click)="executeQuery()" (click)="draw_table=true">Cliente mas activo</a>
         <br>
-        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Teleselección'" (click)="executeQuery()">Teleselección</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Teleselección'" (click)="executeQuery()" (click)="draw_table=true">Teleselección</a>
         <br>
-        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Servicio despertador'" (click)="executeQuery()">Servicio despertador</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Servicio despertador'" (click)="executeQuery()" (click)="draw_table=true">Servicio despertador</a>
         <br>
-        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='otro'" (click)="executeQuery()">Telión</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Historial de llamadas'" (click)="draw_table=false" (click)="url='http://localhost/BackendEtecsa/call_track.php'">Historial de llamadas</a>
         <br>
       </div>
     </div>
-    <!-- Implementar el dinamismo, ngif y hacerle funciones en el typescript -->
+
+    <!-- Formulario para e historial de llamadas -->
+    <div class="col-8" *ngIf="tipo_query=='Historial de llamadas' && draw_table==false">
+      <p class="fs-3 text-center">{{tipo_query}}</p>
+      <form  (ngSubmit)="executeQueryByPhone()" >
+        <label class="form-label" for="telephone" >Número telefónico</label>
+        <input type="text" id="telephone" class="form-control" placeholder="Inserte el número de telefono de un ciente residencial" name="telephone" [(ngModel)]="phone_number" required/>
+        <br>
+        <button data-mdb-ripple-init type="submit" class="btn btn-dark btn-block mb-4">Procesar</button>
+      </form>
+    </div>
+
     <div class="col-8" *ngIf="tipo_query=='Inserte Cliente'">
       <p class="fs-3 text-center">{{tipo_query}}</p>
 
@@ -60,8 +71,8 @@
       </form>
 
     </div>
-
-    <div class="col-8" *ngIf="tipo_query!='Inserte Cliente' && tipo_query!=''">
+    <!-- Tablaaaa -->
+    <div class="col-8" *ngIf="draw_table==true">
       <p class="fs-3 text-center">{{tipo_query}}</p>
       <table class="table">
         <thead class="table-dark">
