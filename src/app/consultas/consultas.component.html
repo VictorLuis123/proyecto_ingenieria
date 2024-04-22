@@ -18,11 +18,13 @@
         <br>
         <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Dar de baja a un cliente'" (click)="draw_table=false" (click)="url='http://localhost/BackendEtecsa/get_down.php'">Dar de baja a un cliente</a>
         <br>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Pago mensual de un cliente'" (click)="draw_table=false" (click)="url='http://localhost/BackendEtecsa/get_monthly_pay.php'">Pago mensual de un cliente</a>
+        <br>
       </div>
     </div>
 
     <!-- Formulario para e historial de llamadas -->
-    <div class="col-8" *ngIf="(tipo_query=='Historial de llamadas' || tipo_query=='Dar de baja a un cliente') && draw_table==false">
+    <div class="col-8" *ngIf="(tipo_query=='Historial de llamadas' || tipo_query=='Dar de baja a un cliente' || tipo_query=='Pago mensual de un cliente') && draw_table==false">
       <p class="fs-3 text-center">{{tipo_query}}</p>
       <form  (ngSubmit)="executeQueryByPhone()" >
         <label class="form-label" for="telephone" >Número telefónico</label>

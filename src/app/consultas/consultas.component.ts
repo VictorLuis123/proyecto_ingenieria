@@ -48,7 +48,6 @@ export class ConsultasComponent {
     this.atributos=[]
     this.elementos=[]
     this.dataservice.getQueryByPhone(this.phone_number,this.url).subscribe((data:any) => {
-      console.log(data);
       data.forEach((item:any) => {
         this.atributos=Object.keys(item);
         this.elementos.push(item);
