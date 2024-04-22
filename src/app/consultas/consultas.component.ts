@@ -28,7 +28,7 @@ export class ConsultasComponent {
        }
     );
   }
-  executeQuery(){
+  executeQuery():void{
     this.atributos=[]
     this.elementos=[]
     this.dataservice.getQuery(this.tipo_query).subscribe((data:any) => {
