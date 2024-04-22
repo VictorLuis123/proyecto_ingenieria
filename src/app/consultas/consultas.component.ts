@@ -13,6 +13,9 @@ export class ConsultasComponent {
   elementos:any[]=[]
   atributos:any[]=[]
 
+  ngOninit():void{}
+  
+
   submitFormClient(user_data:{name:string, id:string,address:string,telephone:string}){
     console.log(user_data)
     this.dataservice.addUser(user_data).subscribe(
@@ -26,12 +29,14 @@ export class ConsultasComponent {
     );
   }
   executeQuery(){
+    this.atributos=[]
+    this.elementos=[]
     this.dataservice.getQuery(this.tipo_query).subscribe((data:any) => {
       data.forEach((item:any) => {
         this.atributos=Object.keys(item);
         this.elementos.push(item);
       });
-    });
+    }); 
   }
 };
 
