@@ -4,18 +4,18 @@
   <div class="row">
     <div class="col-4">
       <div class="list-group">
-        <a class="list-group-item list-group-item-action custom-link">Insertar Cliente</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='insert_client'">Insertar Cliente</a>
         <br>
-        <a class="list-group-item list-group-item-action custom-link">Profile</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query=''">Profile</a>
         <br>
-        <a class="list-group-item list-group-item-action custom-link">Messages</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query=''">Messages</a>
         <br>
-        <a class="list-group-item list-group-item-action custom-link">Settings</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query=''">Settings</a>
         <br>
       </div>
     </div>
     <!-- Implementar el dinamismo, ngif y hacerle funciones en el typescript -->
-    <div class="col-8">
+    <div class="col-8" *ngIf="tipo_query=='insert_client'">
       <p class="fs-3 text-center">Inserte Cliente</p>
 
       <!-- Formulario cool -->

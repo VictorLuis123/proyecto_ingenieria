@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 export class ConsultasComponent {
   constructor(private dataservice:DataService){}
   
+  tipo_query:string='';
 
   submitFormClient(user_data:{name:string, id:string,address:string,telephone:string}){
     console.log(user_data)
