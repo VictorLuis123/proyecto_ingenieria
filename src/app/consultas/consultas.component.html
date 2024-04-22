@@ -19,18 +19,18 @@
       <p class="fs-3 text-center">Inserte Cliente</p>
 
       <!-- Formulario cool -->
-      <form (ngSubmit)="submitFormClient()" #clienteForm="ngForm">
+      <form #clienteForm="ngForm" (ngSubmit)="submitFormClient(clienteForm.value)" >
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4">
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="name" class="form-control" name="name" [(ngModel)]="user_data.name"/>
+              <input type="text" id="name" class="form-control" name="name" ngModel/>
               <label class="form-label" for="name" >Nombre Completo</label>
             </div>
           </div>
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="number" id="id" class="form-control" name="id" [(ngModel)]="user_data.id" />
+              <input type="text" id="id" class="form-control" name="id" ngModel />
               <label class="form-label" for="id">CI del Cliente</label>
             </div>
           </div>
@@ -39,13 +39,13 @@
         <div class="row mb-4">
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="address" class="form-control" name="address" [(ngModel)]="user_data.address"/>
+              <input type="text" id="address" class="form-control" name="address" ngModel/>
               <label class="form-label" for="address">Direccion</label>
             </div>
           </div>
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="number" id="telephone" class="form-control" name="telephone" [(ngModel)]="user_data.telephone"/>
+              <input type="text" id="telephone" class="form-control" name="telephone" ngModel/>
               <label class="form-label" for="telephone">Numero de telefono</label>
             </div>
           </div>
