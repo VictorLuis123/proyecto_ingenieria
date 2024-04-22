@@ -8,6 +8,7 @@ import { DataService } from '../data.service';
 
 export class ConsultasComponent {
   constructor(private dataservice:DataService){}
+  
 
   submitFormClient(user_data:{name:string, id:string,address:string,telephone:string}){
     console.log(user_data)
@@ -16,10 +17,9 @@ export class ConsultasComponent {
         console.log(response);
         alert('Nuevo usuario agregado correctamente');
        },
-      error => {
-        console.error(error);
-        alert('Error al agregar usuario');
-      }
+       error =>{
+        alert('No se ha podido ingresar a usuario');
+       }
     );
   }
 };
