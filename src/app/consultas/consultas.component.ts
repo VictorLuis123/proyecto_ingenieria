@@ -9,14 +9,14 @@ import { DataService } from '../data.service';
 export class ConsultasComponent {
   constructor(private dataservice:DataService){}
 
-  submitFormClient(user_data:{"name":string, "id":string,"address":string,"telephone":string}){
+  submitFormClient(user_data:{name:string, id:string,address:string,telephone:string}){
     console.log(user_data)
     this.dataservice.addUser(user_data).subscribe(
-      (response:any) => {
+      response => {
         console.log(response);
         alert('Nuevo usuario agregado correctamente');
        },
-      (error:any) => {
+      error => {
         console.error(error);
         alert('Error al agregar usuario');
       }

@@ -17,8 +17,8 @@ export class DataService {
   } 
 
   //Metodo para annadir un usuario a la base de datos
-  addUser(user_data:{"name":string, "id":string,"address":string,"telephone":string} ){
-    return this.http.post<any>('http://localhost/ServidorEtecsa/insertar_eliminar_usuarios.php', user_data);
-    
+  addUser(user_data:{name:string, id:string,address:string,telephone:string} ){
+    return this.http.get<any>('http://localhost/ServidorEtecsa/insertar_eliminar_usuarios.php', { params: { name: user_data.name, id: user_data.id, address:user_data.address,telephone:user_data.telephone} });
+       
   }
 }
