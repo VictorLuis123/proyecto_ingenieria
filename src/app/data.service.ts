@@ -21,4 +21,9 @@ export class DataService {
     return this.http.get<any>('http://localhost/BackendEtecsa/insert_client.php', { params: { name: user_data.name, id: user_data.id, address:user_data.address,telephone:user_data.telephone} });
        
   }
+  ///Metodo para ejecutar as queries que no necesitan parametros adicionales
+  getQuery(query_name:string):any{
+    return this.http.get<any>('http://localhost/BackendEtecsa/queries_without_parameters.php', { params: { tipo_query: query_name } });
+  }
+
 }

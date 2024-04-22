@@ -10,6 +10,8 @@ export class ConsultasComponent {
   constructor(private dataservice:DataService){}
   
   tipo_query:string='';
+  elementos:any[]=[]
+  atributos:any[]=[]
 
   submitFormClient(user_data:{name:string, id:string,address:string,telephone:string}){
     console.log(user_data)
@@ -23,5 +25,14 @@ export class ConsultasComponent {
        }
     );
   }
+  executeQuery(){
+    this.dataservice.getQuery(this.tipo_query).subscribe((data:any) => {
+      data.forEach((item:any) => {
+        this.atributos=Object.keys(item);
+        this.elementos.push(item);
+      });
+    });
+  }
 };
+
 

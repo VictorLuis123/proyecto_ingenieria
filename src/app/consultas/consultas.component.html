@@ -4,9 +4,9 @@
   <div class="row">
     <div class="col-4">
       <div class="list-group">
-        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='insert_client'">Insertar Cliente</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Inserte Cliente'">Insertar Cliente</a>
         <br>
-        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query=''">Profile</a>
+        <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query='Carga por metrado'" (click)="executeQuery()">Carga por metrado</a>
         <br>
         <a class="list-group-item list-group-item-action custom-link" (click)="tipo_query=''">Messages</a>
         <br>
@@ -15,8 +15,8 @@
       </div>
     </div>
     <!-- Implementar el dinamismo, ngif y hacerle funciones en el typescript -->
-    <div class="col-8" *ngIf="tipo_query=='insert_client'">
-      <p class="fs-3 text-center">Inserte Cliente</p>
+    <div class="col-8" *ngIf="tipo_query=='Inserte Cliente'">
+      <p class="fs-3 text-center">{{tipo_query}}</p>
 
       <!-- Formulario cool -->
       <form #clienteForm="ngForm" (ngSubmit)="submitFormClient(clienteForm.value)" >
@@ -56,6 +56,24 @@
       </form>
 
     </div>
-  
+
+    <div class="col-8" *ngIf="tipo_query!='Inserte Cliente' && tipo_query!=''">
+      <p class="fs-3 text-center">{{tipo_query}}</p>
+      <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th scope="row">#</th>
+            <th *ngFor="let atrib of atributos">{{atrib}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let elemento of elementos;let i=index">
+            <th scope="row">{{i}}</th>
+            <th *ngFor="let atrib of atributos"> {{elemento[atrib]}}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>
