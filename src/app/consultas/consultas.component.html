@@ -36,9 +36,8 @@
     <div class="col-8" *ngIf="tipo_query=='Inserte Cliente'">
       <p class="fs-3 text-center">{{tipo_query}}</p>
 
-      <!-- Formulario cool -->
-      <!-- <form   [formGroup]="mi_formulario"  (ngSubmit)="submitFormClient(mi_formulario.getRawValue())" > -->
-      <form   [formGroup]="mi_formulario"  >
+      <!-- Formulario reactivo cool -->
+       <form   [formGroup]="mi_formulario"  (ngSubmit)="submitFormClient(mi_formulario.value)" >
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4">
           <div class="col">
