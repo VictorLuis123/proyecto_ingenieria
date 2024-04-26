@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { FormBuilder,FormControl,FormGroup,Validators } from '@angular/forms';
+
 @Component({
   selector: 'app-consultas',
   templateUrl: './consultas.component.html',
   styleUrls: ['./consultas.component.css']
 })
 
-export class ConsultasComponent {
-  constructor(private dataservice:DataService){}
+export class ConsultasComponent implements OnInit{
+  constructor(private dataservice:DataService,private formBuilder: FormBuilder){}
+
+  mi_formulario:FormGroup=new FormGroup({})
   
   tipo_query:string='';
   phone_number:string='';
@@ -16,21 +20,29 @@ export class ConsultasComponent {
   elementos:any[]=[]
   atributos:any[]=[]
 
-  ngOninit():void{}
-  
-
-  submitFormClient(user_data:{name:string, id:string,address:string,telephone:string}){
-    console.log(user_data)
-    this.dataservice.addUser(user_data).subscribe(
-      response => {
-        console.log(response);
-        alert('Nuevo usuario agregado correctamente');
-       },
-       error =>{
-        alert('No se ha podido ingresar a usuario');
-       }
-    );
+  ngOnInit():void{
+    this.mi_formulario = this.formBuilder.group({
+      name: new FormControl('', [Validators.required]),
+      id: new FormControl('', [Validators.required]),
+      address: new FormControl('',[ Validators.required]),
+      telephone: new FormControl('',[Validators.required])
+      
+    });
   }
+
+
+  // submitFormClient(user_data:{name:string, id:string,address:string,telephone:string}){
+  //   console.log(user_data)
+  //   this.dataservice.addUser(user_data).subscribe(
+  //     response => {
+  //       console.log(response);
+  //       alert('Nuevo usuario agregado correctamente');
+  //      },
+  //      error =>{
+  //       alert('No se ha podido ingresar a usuario');
+  //      }
+  //   );
+  // }
   
 
 

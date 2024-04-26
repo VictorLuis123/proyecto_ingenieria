@@ -37,18 +37,19 @@
       <p class="fs-3 text-center">{{tipo_query}}</p>
 
       <!-- Formulario cool -->
-      <form #clienteForm="ngForm" (ngSubmit)="submitFormClient(clienteForm.value)" >
+      <!-- <form   [formGroup]="mi_formulario"  (ngSubmit)="submitFormClient(mi_formulario.getRawValue())" > -->
+      <form   [formGroup]="mi_formulario"  >
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4">
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="name" class="form-control" name="name" ngModel required/>
+              <input type="text" id="name" class="form-control" formControlName="name"  />
               <label class="form-label" for="name" >Nombre Completo</label>
             </div>
           </div>
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="id" class="form-control" name="id" ngModel required/>
+              <input type="text" id="id" class="form-control" formControlName="id"  />
               <label class="form-label" for="id">CI del Cliente</label>
             </div>
           </div>
@@ -57,19 +58,19 @@
         <div class="row mb-4">
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="address" class="form-control" name="address" ngModel required/>
+              <input type="text" id="address" class="form-control" formControlName="address"  />
               <label class="form-label" for="address">Direccion</label>
             </div>
           </div>
           <div class="col">
             <div data-mdb-input-init class="form-outline">
-              <input type="text" id="telephone" class="form-control" name="telephone" ngModel required/>
+              <input type="text" id="telephone" class="form-control" formControlName="telephone"  />
               <label class="form-label" for="telephone">Numero de telefono</label>
             </div>
           </div>
         </div>
         <!-- Submit button -->
-        <button data-mdb-ripple-init type="submit" class="btn btn-dark btn-block mb-4">Insertar Cliente</button>
+        <button data-mdb-ripple-init type="submit" class="btn btn-dark btn-block mb-4" [disabled]="!mi_formulario.valid">Insertar Cliente</button>
        
       </form>
 
