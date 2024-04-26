@@ -17,7 +17,7 @@ export class DataService {
   } 
 
   //Metodo para annadir un usuario a la base de datos
-  addUser(user_data:{name:string, id:string,address:string,telephone:string} ){
+  addUser(user_data:{name:string, id:number,address:string,telephone:number} ){
     return this.http.get<any>('http://localhost/BackendEtecsa/insert_client.php', { params: { name: user_data.name, id: user_data.id, address:user_data.address,telephone:user_data.telephone} });
        
   }

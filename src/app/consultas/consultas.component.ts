@@ -22,16 +22,16 @@ export class ConsultasComponent implements OnInit{
 
   ngOnInit():void{
     this.mi_formulario = this.formBuilder.group({
-      name: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required,Validators.pattern(/^[^\d]+$/)]),
       id: new FormControl('', [Validators.required]),
       address: new FormControl('',[ Validators.required]),
-      telephone: new FormControl('',[Validators.required])
+      telephone: new FormControl('',[Validators.required,Validators.pattern(/^\d{6,14}$/)])
       
     });
   }
 
 
-  submitFormClient(user_data:{name:string, id:string,address:string,telephone:string}){
+  submitFormClient(user_data:{name:string, id:number,address:string,telephone:number}){
     console.log(user_data)
     this.dataservice.addUser(user_data).subscribe(
       response => {
